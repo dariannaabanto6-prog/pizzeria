@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzería Cari | 25 Años de Sabor Tradicional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-accent: #E6501B;
+            --color-red-light: #C3110C;
+            --color-secondary: #740A03;
+            --color-primary: #280905;
+        }
+
+        body {
+            background-color: var(--color-primary);
+            color: #fefefe;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .bg-primary { background-color: var(--color-primary); }
+        .bg-secondary { background-color: var(--color-secondary); }
+        .text-accent { color: var(--color-accent); }
+        .bg-accent { background-color: var(--color-accent); }
+        .border-accent { border-color: var(--color-accent); }
+
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--color-accent);
+        }
+
+        .pizza-card {
+            background-color: #1a0603;
+            border: 1px solid var(--color-secondary);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .pizza-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-accent);
+        }
+
+        .hero-section {
+            /* Imagen de portada: Pizza artesanal saliendo del horno */
+            background: linear-gradient(rgba(40, 9, 5, 0.75), rgba(40, 9, 5, 0.75)), 
+                        url('https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+        }
+
+        .btn-fancy {
+            background-color: var(--color-red-light);
+            transition: all 0.3s ease;
+        }
+        .btn-fancy:hover {
+            background-color: var(--color-accent);
+            transform: scale(1.05);
+        }
+
+        .section-padding {
+            padding: 80px 20px;
+        }
+
+        .custom-shadow {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 bg-primary/95 backdrop-blur-sm border-b border-secondary/50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-3xl font-bold tracking-tighter text-accent italic">CARI</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#menu" class="nav-link">Elige tu Pizza</a>
+                <a href="#reseñas" class="nav-link">Reseñas</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </div>
+
+            <button class="md:hidden text-2xl" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Menú Móvil -->
+        <div id="mobileMenu" class="hidden md:hidden bg-secondary p-4 flex flex-col space-y-4 text-center">
+            <a href="#inicio" class="mobile-link">Inicio</a>
+            <a href="#menu" class="mobile-link">Elige tu Pizza</a>
+            <a href="#reseñas" class="mobile-link">Reseñas</a>
+            <a href="#contacto" class="mobile-link">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Sección Inicio (Portada) -->
+    <section id="inicio" class="hero-section flex items-center justify-center text-center px-4">
+        <div class="max-w-3xl">
+            <p class="text-accent uppercase tracking-[0.3em] font-semibold mb-2">Desde 1999</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6">25 años horneando <br><span class="text-accent">historias en Cari</span></h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8">La auténtica tradición artesanal que ha conquistado paladares por un cuarto de siglo. Crujiente, fresca y hecha con pasión.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#menu" class="btn-fancy px-8 py-4 rounded-full font-bold text-white uppercase tracking-wider">Ver Menú</a>
+                <a href="#contacto" class="border border-white/30 hover:bg-white/10 px-8 py-4 rounded-full font-bold text-white uppercase tracking-wider">Ubicación</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Elige tu Pizza (Productos) -->
+    <section id="menu" class="section-padding max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Nuestras Especialidades</h2>
+            <div class="w-24 h-1 bg-accent mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Producto 1: Margarita / Tradicional -->
+            <div class="pizza-card rounded-2xl overflow-hidden custom-shadow">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbad80ad38?auto=format&fit=crop&w=600&q=80" alt="Pizza Margarita de Calidad" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold">La Cari Tradicional</h3>
+                        <span class="text-accent font-bold">$12.90</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Nuestra receta original de hace 25 años. Tomates San Marzano, mozzarella di bufala y albahaca fresca.</p>
+                    <button class="w-full py-2 border border-secondary hover:bg-secondary rounded-lg transition text-sm">Añadir al pedido</button>
+                </div>
+            </div>
+
+            <!-- Producto 2: Pepperoni / Picante -->
+            <div class="pizza-card rounded-2xl overflow-hidden custom-shadow">
+                <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=600&q=80" alt="Pizza de Pepperoni deliciosa" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold">Fuego Criollo</h3>
+                        <span class="text-accent font-bold">$15.50</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Pepperoni ahumado, rodajas de chile fresco y un toque de nuestra salsa picante secreta de la casa.</p>
+                    <button class="w-full py-2 border border-secondary hover:bg-secondary rounded-lg transition text-sm">Añadir al pedido</button>
+                </div>
+            </div>
+
+            <!-- Producto 3: Vegetariana / Especial -->
+            <div class="pizza-card rounded-2xl overflow-hidden custom-shadow">
+                <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=600&q=80" alt="Pizza Vegetariana Gourmet" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold">Huerta Blanca</h3>
+                        <span class="text-accent font-bold">$14.00</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Una explosión de vegetales: pimientos, aceitunas negras, cebolla morada y queso feta sobre masa fina.</p>
+                    <button class="w-full py-2 border border-secondary hover:bg-secondary rounded-lg transition text-sm">Añadir al pedido</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Reseñas -->
+    <section id="reseñas" class="bg-secondary/20 section-padding">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 italic">Lo que dicen nuestros clientes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 bg-primary rounded-xl border-l-4 border-accent italic relative">
+                    <i class="fas fa-quote-left text-accent/30 text-4xl absolute top-4 left-4"></i>
+                    <p class="mb-6 relative z-10">"He venido a Cari desde que era un niño. El sabor no ha cambiado en 25 años, es simplemente la mejor de la ciudad."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center font-bold">R</div>
+                        <div>
+                            <p class="font-bold text-sm">Ricardo Sosa</p>
+                            <p class="text-xs text-gray-500">Cliente desde 2005</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-primary rounded-xl border-l-4 border-accent italic relative">
+                    <i class="fas fa-quote-left text-accent/30 text-4xl absolute top-4 left-4"></i>
+                    <p class="mb-6 relative z-10">"La masa es espectacular. Se nota que usan ingredientes de calidad. La atención siempre es familiar y cálida."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center font-bold">M</div>
+                        <div>
+                            <p class="font-bold text-sm">Mariela Ortiz</p>
+                            <p class="text-xs text-gray-500">Food Blogger</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-primary rounded-xl border-l-4 border-accent italic relative">
+                    <i class="fas fa-quote-left text-accent/30 text-4xl absolute top-4 left-4"></i>
+                    <p class="mb-6 relative z-10">"Celebré mi aniversario número 20 aquí, el mismo lugar donde tuvimos nuestra primera cita. Cari es parte de nuestra vida."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center font-bold">J</div>
+                        <div>
+                            <p class="font-bold text-sm">Juan P. Blanco</p>
+                            <p class="text-xs text-gray-500">Vecino del barrio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto y Ubicación -->
+    <section id="contacto" class="section-padding max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="space-y-6">
+                <h2 class="text-4xl font-bold">¿Tienes hambre? <br><span class="text-accent">Contáctanos</span></h2>
+                <p class="text-gray-400">Estamos listos para preparar la pizza de tus sueños. Visítanos o llámanos para recoger tu pedido.</p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-accent">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white">Nuestra Casa</p>
+                            <p class="text-gray-400 text-sm">Av. Central 123, Barrio Gastronómico</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-accent">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white">Teléfono Directo</p>
+                            <p class="text-gray-400 text-sm">+52 555 123 4567</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-accent">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white">Horario de Servicio</p>
+                            <p class="text-gray-400 text-sm">Mar - Dom: 14:00 - 23:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex space-x-4 pt-6">
+                    <a href="#" class="text-2xl hover:text-accent transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-accent transition"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-2xl hover:text-accent transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="rounded-3xl overflow-hidden border-4 border-secondary custom-shadow h-[400px]">
+                <!-- Simulación de Mapa con imagen de Google Maps / Calles -->
+                <div class="w-full h-full bg-gray-800 relative flex items-center justify-center text-center p-8">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80')] opacity-40 bg-cover bg-center"></div>
+                    <div class="relative z-10 bg-primary/80 p-6 rounded-2xl backdrop-blur-sm border border-accent/30">
+                        <div class="text-accent text-5xl mb-4"><i class="fas fa-pizza-slice"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Pizzería Cari</h3>
+                        <p class="text-sm">Te esperamos en nuestra ubicación histórica.</p>
+                        <button class="mt-4 px-6 py-2 bg-accent rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition">Cómo llegar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-10 border-t border-secondary">
+        <div class="text-center">
+            <p class="text-accent font-bold italic text-2xl mb-4">CARI</p>
+            <p class="text-gray-500 text-sm">© 1999 - 2024 Pizzería Cari. Todos los derechos reservados.</p>
+            <p class="text-[10px] text-gray-700 mt-2 uppercase tracking-[0.2em]">Hecho con pasión por el sabor</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica básica para el menú móvil
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Cambio de estilo del header al hacer scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        });
+    </script>
+</body>
+</html>
